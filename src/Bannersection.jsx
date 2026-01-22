@@ -14,7 +14,7 @@ import girl from '../src/assets/LOGO 1/girl.png';
 import Location from '../src/assets/LOGO 1/Location.png';
 import girl2 from '../src/assets/LOGO 1/girl2.png';
 import image from '../src/assets/LOGO 1/image.png';
-import tracking from '../src/assets/LOGO 1/tracking.png';
+import tracking from '../src/assets/LOGO 1/Tracking.png';
 import tick from '../src/assets/LOGO 1/Tickbox.png';
 import one from '../src/assets/LOGO 1/one.png';
 import two from '../src/assets/LOGO 1/two.png';

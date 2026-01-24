@@ -1,37 +1,40 @@
 export default function TotalItems(){
     return(
         <div>
-            <div className="max-w-6xl bg-green-400 px-4 py-4 mx-auto">
+            <div className=" mx-14 mt-8 bg-orange-400 rounded-xl  py-4 ">
                 <div className="flex flex-col md:flex-row justify-around">
-                    <div className="flex flex-col text-white border-r border-white px-6">
-                        <div className="text-lg">
+                    <div className="flex flex-col text-white border-white">
+                        <div className="text-4xl">
                             546 +
                         </div>
-                        <div className="text-capitalize text-md">
+                        <div className="text-capitalize text-sm font-bold ">
                             registered riders
                         </div>
                     </div>
-                    <div className="flex flex-col text-white">
-                        <div className="text-lg">
+                     <div className="border-r text-white "></div>
+                    <div className="flex flex-col text-white ">
+                        <div className="text-4xl">
                             789,900 +
                         </div>
-                        <div className="text-capitalize text-md">
+                        <div className="text-capitalize text-sm font-bold">
                             orders delivered
                         </div>
                     </div>
+                    <div className="border-r text-white "></div>
                     <div className="flex flex-col text-white">
-                        <div className="text-lg">
+                        <div className="text-4xl ">
                             690 +
                         </div>
-                        <div className="text-capitalize text-md">
+                        <div className="text-capitalize text-sm font-bold">
                             restaurants partners
                         </div>
                     </div>
+                     <div className="border-r text-white "></div>
                     <div className="flex flex-col text-white">
-                        <div className="text-lg">
+                        <div className="text-4xl">
                             17,457 +
                         </div>
-                        <div className="text-capitalize text-md">
+                        <div className="text-capitalize text-sm font-bold">
                             food items
                         </div>
                     </div>

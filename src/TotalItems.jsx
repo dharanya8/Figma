@@ -1,7 +1,9 @@
 export default function TotalItems(){
     return(
         <div>
+
             <div className=" mx-14 mt-8 bg-orange-400 rounded-xl  py-4 ">
+            <div className=" mx-15 mt-8 bg-orange-400 rounded-xl  py-4 ">
                 <div className="flex flex-col md:flex-row justify-around">
                     <div className="flex flex-col text-white border-white">
                         <div className="text-4xl">
@@ -40,6 +42,7 @@ export default function TotalItems(){
                     </div>
                 </div>
             </div>
+        </div>
         </div>
     )
 }

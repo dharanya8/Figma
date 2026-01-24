@@ -5,7 +5,7 @@ import food from "./assets/images/food.png";
 export default function Knowmore() {
   return (
     <>
-      <div className="max-w-7xl mx-auto px-4 py-1">
+      <div className="max-w-7xl mx-auto px-4 ">
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-10">
           <h2 className="text-2xl font-bold">Know more about us!</h2>
@@ -23,12 +23,11 @@ export default function Knowmore() {
         {/* Content Box */}
         <div className="bg-gray-100 rounded-2xl p-8 flex flex-row justify-evenly gap-8">
           {/* FAQ List */}
-          <div className="md:col-span-1 space-y-4">
-            <button className="w-full bg-orange-500 text-white text-sm py-2 rounded-pill">
+          <div className="">
+            <button className="w-55 bg-orange-500 text-white text-xs py-2 rounded-pill">
               How does Order.UK work?
             </button>
-
-            <button className="text-sm text-gray-600 mt-3 cursor-pointer">
+            <button className="text-xs text-gray-600 mt-3 cursor-pointer">
               What payment methods are accepted?
             </button>
             <button className="text-sm text-gray-600 mt-3 cursor-pointer">

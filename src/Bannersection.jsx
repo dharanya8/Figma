@@ -187,9 +187,9 @@ function BannerSection() {
               <input
                 type="text"
                 placeholder="e.g. 638000"
-                className="flex-1 pl-4 py-2 text-xs sm:text-sm outline-none"
+                className="flex-1 pl-2 py-2 text-xs sm:text-sm outline-none"
               />
-              <button className="bg-orange-500 text-white px-6  sm:px-10 py-2 sm:py-3 whitespace-nowrap text-sm font-semibold rounded-pill hover:bg-orange-600">
+              <button className="bg-orange-500 text-white px-2  sm:px-10  py-2 sm:py-3 whitespace-nowrap text-sm font-semibold rounded-pill hover:bg-orange-600">
                 Search
               </button>
             </div>

@@ -12,7 +12,7 @@ export default function  Popularrestaurant(){
         <div className="text-lg font-bold">
             Popular Restaurants
                 </div>
-        <div className="flex flex-row gap-3 my-4">
+        <div className="flex flex-col md:flex-row gap-3 my-4">
             <div className="flex flex-col ">
                 <Image src={Rectangle1} className="w-51 h-45"></Image>
                 <div className="bg-gray-100 border-2 border-orange-500 bg-orange-500 text-center py-3 rounded-b-xl h-15">

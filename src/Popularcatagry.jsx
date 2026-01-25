@@ -13,7 +13,7 @@ export default function Popularcatagry(){
         <div className="text-lg font-bold">
             order.uk Popular Categories
                 </div>
-        <div className="flex flex-row gap-3 my-4">
+        <div className="flex flex-col md:flex-row gap-3 my-4">
             <div className="flex flex-col ">
                 <Image src={Rectangle13} className="w-51 h-45"></Image>
                 <div className="bg-gray-100 border-2 border-gray-200 px-3 py-2 rounded-b-xl h-15">

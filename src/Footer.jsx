@@ -15,8 +15,8 @@ export default function Footer() {
 
             <img src={appbanner} alt="app banner" className="w-44" />
 
-            <p className="text-sm ">
-              Company # 490039-445, Registered with House of companies.
+            <p className="text-md text-black">
+              Company # 490039-445, Registered <br/>with House of companies.
             </p>
           </div>
 
@@ -29,7 +29,7 @@ export default function Footer() {
             <div className="flex items-center border border-gray-300 rounded-full overflow-hidden bg-gray-300">
               <input
                 type="email"
-                placeholder="Enter your email"
+                placeholder="youremail@gmail.com"
                 className="flex-1 px-4 py-2 text-sm outline-none"
               />
               <button className="bg-orange-500 text-white px-6 py-2 text-sm font-semibold hover:bg-orange-600">
@@ -85,19 +85,25 @@ export default function Footer() {
       </div>
 
       {/* BOTTOM FOOTER */}
-      <div className="bg-blue-800 text-white mt-6 px-4 py-4 rounded-xl">
-        <div className="flex flex-col md:flex-row justify-between items-center gap-3 text-sm">
+      <div className="bg-blue-950 text-white px-18 py-4">
+        <div className="flex flex-col md:flex-row justify-between items-center gap-3 text-md">
 
-          <p>
-            © Order.uk 2024. All Rights Reserved.
+          <p className="mt-2 ml-">
+            Order.uk Copyright 2024, All Rights Reserved.
           </p>
 
-          <div className="flex gap-4">
-            <a href="#" className="hover:underline">
+          <div className="flex gap-4 ">
+            <a href="#" className="text-white text-decoration-none">
               Privacy Policy
             </a>
-            <a href="#" className="hover:underline">
+            <a href="#" className="text-white text-decoration-none">
               Terms
+            </a>
+            <a href="#" className="text-white text-decoration-none">
+              Pricing
+            </a>
+            <a href="#" className="text-white text-decoration-none">
+              Do not sell or share my personal information
             </a>
           </div>
 

@@ -37,24 +37,29 @@ export default function Deals() {
       </div>
 
       {/* IMAGES SECTION */}
-      <div className="flex flex-col md:flex-row gap-4 mt-4 my-3">
+     <div className="
+  grid 
+  grid-cols-1 
+  md:grid-cols-2 
+  lg:grid-cols-3 
+  gap-4 
+  mt-4 my-3
+">
+  <Image
+    src={group10}
+    className="w-full h-auto object-cover rounded-xl"
+  />
 
-        <Image
-          src={group10}
-          className="w-full md:w-99 h-auto object-cover rounded-xl"
-        />
+  <Image
+    src={group11}
+    className="w-full h-auto object-cover rounded-xl"
+  />
 
-        <Image
-          src={group11}
-          className="w-70 md:w-99 h-auto object-cover rounded-xl"
-        />
-
-        <Image
-          src={group12}
-          className="w-70 md:w-99 h-auto object-cover rounded-xl"
-        />
-
-      </div>
+  <Image
+    src={group12}
+    className="w-full h-auto object-cover rounded-xl"
+  />
+</div>
     </div>
   );
 }

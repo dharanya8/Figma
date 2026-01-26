@@ -3,29 +3,20 @@ import Basket from "./assets/images/Basket.png";
 import Forward from "./assets/images/Forward.png";
 import Line from "./assets/images/Line.png";
 import Logo from "./assets/images/LOGO 1.png";
-import girl from "./assets/images/girl.png";
-import girl2 from "./assets/images/girl2.png";
-import image from "./assets/images/image.png";
-import Location from "./assets/images/Location.png";
-import tracking from "./assets/images/Tracking.png";
-import tick from "./assets/images/TickBox.png";
-import one from "./assets/images/one.png";
-import two from "./assets/images/two.png";
-import three from "./assets/images/three.png";
-import React, { useState } from "react";
-import Image from "react-bootstrap/Image";
 import { HiMenu, HiX } from "react-icons/hi";
+import React, { useState } from "react";
 import { MdPerson } from "react-icons/md";
-import { PiBasketBold } from "react-icons/pi";
-import { FaCheckCircle } from "react-icons/fa";
-import { FaCircleArrowDown } from "react-icons/fa6";
+import Location from "./assets/images/Location.png";
+import Image from "react-bootstrap/Image";
+import Burger from './assets/images/Burger.png';
 
-function BannerSection() {
+export default function Restaurant(){
   const [active, setActive] = useState("Home");
-  const [open, setOpen] = useState(false);
-
-  return (
-    <div className="px-4 lg:!px-15 font-sans">
+    const [open, setOpen] = useState(false);
+  
+    return(
+        <>
+        <div className="px-4 lg:!px-15 font-sans">
       <div className="bg-gray-100 flex flex-col lg:flex-row items-center justify-center md:!justify-center lg:!justify-between border-2 border-gray-200 h-50  lg:!h-12 rounded-b-xl ">
         <div className="flex items-center  gap-2  md:!ml-10 ">
           <Image src={star} alt="Star" className="w-5 h-5" />
@@ -169,98 +160,65 @@ function BannerSection() {
           )}
         </div>
       </nav>
+    
 
-      <div className="bg-gray-50 border-1 border-gray-100 mt-4 rounded-xl flex flex-row items-center justify-between overflow-hidden">
-        <div className="flex flex-col py-13 md:!py-28 pl-2 md:!pl-2 lg:!pl-10 xl:!pl-15">
-          <p className="text-sm md:!text-md lg:!text-md">
-            order Restaurant food,takeaway any groceries
-          </p>
-          <h1 className="text-3xl md:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight">
-            <span className="lg:text-5xl">Feast Your Senses,</span> <br />
-            <span className="text-orange-500 lg:text-5xl">Fast and Fresh</span>
-          </h1>
-          <p className="mt-3 text-sm md:!text-md">
-            Enter a pincode to see what we deliver
-          </p>
-          <div className="mt-6">
-            <div className="flex items-center border border-gray-300 rounded-full overflow-hidden  w-full max-w-[350px] bg-white">
-              <input
-                type="text"
-                placeholder="e.g. 638000"
-                className="flex-1 pl-2  py-2 text-xs  sm:text-sm outline-none"
-              />
-              <button className="bg-orange-500 text-white px-1  sm:px-10   py-2 sm:py-3 whitespace-nowrap text-sm font-semibold rounded-pill hover:bg-orange-600">
-                Search
-              </button>
-            </div>
-          </div>
-        </div>
+  {/* TEXT OVER IMAGE */}
+  <div className="mt-6 relative">
 
-        <div className="flex relative md:group">
-          <Image
-            src={image}
-            className="md:flex position-relative h-110 mt-10 hidden md:group"
-          ></Image>
-          <Image
-            src={girl2}
-            className="position-absolute h-95 w-70 mt-25 right-55 md:right-40 lg:!right-55"
-          ></Image>
-          <Image
-            src={girl}
-            alt="Banner"
-            className="xl:!flex w-full h-105 rounded-xl object-cover position-absolute mt-15 right-92 hidden lg:group"
-          />
+  {/* BACKGROUND IMAGE */}
+  <img
+    src={Burger}
+    alt="Burger"
+    className="w-full h-95 object-cover opacity-25 rounded-xl"
+  />
 
-          <div className="absolute top-6 right-4 space-y-3 w-70 hidden md:block">
-            <div className="bg-white px-3 rounded-lg shadow-md text-sm pt-1 -translate-x-18 mt-13">
-              <div className="flex ">
-                <Image src={Logo} className="w-15 mt-1"></Image>
-                <span className="ml-40 text-gray-400">now</span>
-              </div>
-              <h6 className="font-semibold text-xs mt-1">
-                We've received your order!
-              </h6>
-              <p className="relative text-xs text-gray-900 -top-2">
-                Awaiting restaurant acceptance
-                <img
-                  src={tracking}
-                  alt=""
-                  className="absolute -top-0 left-37 w-4 h-4"
-                />
-              </p>
-            </div>
-            <div className="bg-white pl-4 pt-1 rounded-lg shadow-md text-sm mt-18 ml-4">
-              <div className="flex ">
-                <Image src={Logo} className="w-15 mt-1"></Image>
-                <span className="ml-36 text-gray-400">now</span>
-              </div>
-              <h6 className="font-semibold text-sm mt-1 flex">
-                {" "}
-                Order Accepted!
-                <Image src={tick} className="w-5  ml-6 h-5"></Image>
-              </h6>
-              <p className="relative text-xs text-gray-900 -top-2 ">
-                Your order will be delivered shortly
-              </p>
-            </div>
-            <div className="bg-white px-3 pt-1 rounded-lg shadow-md text-sm mt-16 -translate-x-6">
-              <div className="flex">
-                <Image src={Logo} className="w-15 mt-1"></Image>
-                <span className="ml-40 text-gray-400">now</span>
-              </div>
-              <h6 className="font-semibold text-xs mt-1 flex">
-                {" "}
-                Your rider's nearby🎉
-              </h6>
-              <p className="relative text-xs text-gray-900 -top-2">
-                They're almost there-get ready!
-              </p>
-            </div>
-          </div>
-        </div>
+  {/* TEXT OVER IMAGE */}
+  <div className="absolute inset-0 flex flex-col lg:flex-row items-center justify-between px-6 lg:px-12">
+
+    {/* LEFT CONTENT */}
+    <div className="lg:w-1/2 flex flex-col gap-4">
+      <p className="text-sm text-black font-semibold">
+        I'm lovin' it!
+      </p>
+
+      <h1 className="text-2xl md:text-4xl font-bold text-black">
+        McDonald’s East London
+      </h1>
+
+      <div className="flex flex-wrap gap-3 mt-2">
+        <button className="bg-slate-900 text-white px-4 py-2 rounded-pill text-sm">
+          🛒 Minimum Order: 12 GBP
+        </button>
+
+        <button className="bg-slate-900 text-white px-4 py-2 rounded-pill text-sm">
+          🛵 Delivery in 20–25 Minutes
+        </button>
+      </div>
+
+      <button className=" w-fit bg-orange-500 text-white px-5 py-2  text-sm font-semibold">
+        Open until 3:00 AM
+      </button>
+    </div>
+
+    {/* RIGHT IMAGE + RATING */}
+    <div className="relative mt-6 lg:mt-0 group">
+      <img
+        src={Burger}
+        alt="Burger"
+        className="w-64 md:w-120 rounded-xl hidden md:!hidden lg:!flex"
+      />
+
+      {/* RATING CARD */}
+      <div className="absolute right-107 bottom-8 bg-white rounded-xl shadow-lg p-3 w-28">
+        <h3 className="text-xl font-bold">3.4</h3>
+        <div className="text-orange-400 text-sm">★★★★☆</div>
+        <p className="text-xs text-gray-500">1,360 reviews</p>
       </div>
     </div>
-  );
-}
 
-export default BannerSection;
+  </div>
+</div>
+</div>
+        </>
+    )
+}

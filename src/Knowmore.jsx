@@ -50,7 +50,7 @@ export default function Knowmore() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:ml-6">
 
             {/* Card 1 */}
-            <div className="bg-gray-200 rounded-xl p-4 text-center">
+            <div className="bg-gray-200 rounded-xl p-4 md:!p-2 lg:!p-4 text-center">
               <h4 className="font-semibold mb-4">Place an Order!</h4>
               <img src={bell} alt="order" className="w-20 mx-auto mb-4" />
               <p className="text-sm">
@@ -58,8 +58,8 @@ export default function Knowmore() {
               </p>
             </div>
 
-            {/* Card 2 */}
-            <div className="bg-gray-200 rounded-xl p-4 text-center">
+            {/* Card 2 */} 
+            <div className="bg-gray-200 rounded-xl p-4 md:!p-2 lg:!p-4 text-center">
               <h4 className="font-semibold mb-4">Track Progress</h4>
               <img src={food} alt="track" className="w-20 mx-auto mb-4" />
               <p className="text-sm">
@@ -68,7 +68,7 @@ export default function Knowmore() {
             </div>
 
             {/* Card 3 */}
-            <div className="bg-gray-200 rounded-xl p-4 text-center">
+            <div className="bg-gray-200 rounded-xl p-4 md:!p-2 lg:!p-4 text-center">
               <h4 className="font-semibold mb-4">Get your Order!</h4>
               <img src={phone} alt="delivery" className="w-20 mx-auto mb-4" />
               <p className="text-sm">

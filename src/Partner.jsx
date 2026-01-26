@@ -2,7 +2,7 @@ import Image from "react-bootstrap/Image";
 import partner from "./assets/images/partner.png";
 import scooty from "./assets/images/scooty.png";
 
-export default function partneer() {
+export default function Partner() {
   return (
     <>
       <div className="max-w-7xl mx-auto my-2 px-2 md:!px-12">

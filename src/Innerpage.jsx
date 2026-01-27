@@ -6,6 +6,8 @@ import Colddrinks from './Colddrinks.jsx';
 import Deliverinformation from './Deliverinformation.jsx'; 
 import Restaurantlocation from './Restaurantlocation.jsx';
 import Customarreviews from './Customarreview.jsx';
+import Popularrestaurant from './Popularrestaurant.jsx';
+import Footer from './Footer.jsx'
 export default function Innerpage(){
     return(
         <>
@@ -17,6 +19,8 @@ export default function Innerpage(){
     <Deliverinformation/>
     <Restaurantlocation/>
     <Customarreviews/>
+    <Popularrestaurant/>
+    <Footer/>
         </>
     )
 }

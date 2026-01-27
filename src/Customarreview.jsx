@@ -1,98 +1,141 @@
+import { useRef, useState, useEffect } from "react";
 import { FaStar, FaChevronLeft, FaChevronRight } from "react-icons/fa";
 
 const reviews = [
-  {
-    id: 1,
-    name: "St Qlx",
-    location: "South London",
-    date: "24th September, 2023",
-    rating: 5,
-    text:
-      "The positive aspect was undoubtedly the efficiency of the service. The queue moved quickly, the staff was friendly, and the food was up to the usual McDonald's standard – hot and satisfying.",
+  { id: 1, name: "St Qlx", location: "South London", date: "24th September, 2023", rating: 5,
+    text: "The positive aspect was undoubtedly the efficiency of the service. The queue moved quickly, the staff was friendly, and the food was up to the usual McDonald's standard – hot and satisfying.",
     avatar: "https://i.pravatar.cc/40?img=1",
   },
-  {
-    id: 2,
-    name: "St Qlx",
-    location: "South London",
-    date: "24th September, 2023",
-    rating: 5,
-    text:
-      "The positive aspect was undoubtedly the efficiency of the service. The queue moved quickly, the staff was friendly, and the food was up to the usual McDonald's standard – hot and satisfying.",
+  { id: 2, name: "St Qlx", location: "South London", date: "24th September, 2023", rating: 5,
+    text: "The positive aspect was undoubtedly the efficiency of the service. The queue moved quickly, the staff was friendly, and the food was up to the usual McDonald's standard – hot and satisfying.",
     avatar: "https://i.pravatar.cc/40?img=2",
   },
-  {
-    id: 3,
-    name: "St Qlx",
-    location: "South London",
-    date: "24th September, 2023",
-    rating: 5,
-    text:
-      "The positive aspect was undoubtedly the efficiency of the service. The queue moved quickly, the staff was friendly, and the food was up to the usual McDonald's standard – hot and satisfying.",
+  { id: 3, name: "St Qlx", location: "South London", date: "24th September, 2023", rating: 5,
+    text: "The positive aspect was undoubtedly the efficiency of the service. The queue moved quickly, the staff was friendly, and the food was up to the usual McDonald's standard – hot and satisfying.",
     avatar: "https://i.pravatar.cc/40?img=3",
+  },
+  { id: 4, name: "St Qlx", location: "South London", date: "24th September, 2023", rating: 5,
+    text: "The positive aspect was undoubtedly the efficiency of the service. The queue moved quickly, the staff was friendly, and the food was up to the usual McDonald's standard – hot and satisfying.",
+    avatar: "https://i.pravatar.cc/40?img=4",
+  },
+  { id: 5, name: "St Qlx", location: "South London", date: "24th September, 2023", rating: 5,
+    text: "The positive aspect was undoubtedly the efficiency of the service. The queue moved quickly, the staff was friendly, and the food was up to the usual McDonald's standard – hot and satisfying.",
+    avatar: "https://i.pravatar.cc/40?img=5",
   },
 ];
 
 export default function Customarreviews() {
+  const scrollRef = useRef(null);
+
+  const [showLeftArrow, setShowLeftArrow] = useState(false);
+  const [showRightArrow, setShowRightArrow] = useState(true);
+
+  const CARD_SCROLL = 344; // 320 card + 24 gap
+
+  const scrollLeft = () => {
+    scrollRef.current.scrollBy({ left: -CARD_SCROLL, behavior: "smooth" });
+  };
+
+  const scrollRight = () => {
+    scrollRef.current.scrollBy({ left: CARD_SCROLL, behavior: "smooth" });
+  };
+
+  // 👇 Trust-style arrow control
+  const handleScroll = () => {
+    const container = scrollRef.current;
+    const scrollLeftVal = container.scrollLeft;
+    const maxScroll =
+      container.scrollWidth - container.clientWidth;
+
+    setShowLeftArrow(scrollLeftVal > 0);
+    setShowRightArrow(scrollLeftVal < maxScroll - 10);
+  };
+
+  useEffect(() => {
+    const container = scrollRef.current;
+    container.addEventListener("scroll", handleScroll);
+    handleScroll();
+    return () =>
+      container.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
-    <div className="bg-gray-300  ">
-      <div className="max-w-7xl mx-auto px-4 py-16">
+    <div className="bg-gray-300">
+      <div className="max-w-7xl mx-auto px-4 py-25 ">
 
         {/* HEADER */}
         <div className="flex items-center justify-between mb-8">
-          <h2 className="text-2xl font-bold">Customer Reviews</h2>
+          <h2 className="text-2xl font-bold">
+            Customer Reviews
+          </h2>
 
           <div className="flex gap-3">
-            <button className="bg-orange-500 text-white p-3 rounded-pill">
-              <FaChevronLeft />
-            </button>
-            <button className="bg-orange-500 text-white p-3 rounded-pill">
-              <FaChevronRight />
-            </button>
+            {showLeftArrow && (
+              <button
+                onClick={scrollLeft}
+                className="bg-orange-500 text-white p-3 rounded-pill"
+              >
+                <FaChevronLeft />
+              </button>
+            )}
+
+            {showRightArrow && (
+              <button
+                onClick={scrollRight}
+                className="bg-orange-500 text-white p-3 rounded-pill"
+              >
+                <FaChevronRight />
+              </button>
+            )}
           </div>
         </div>
 
-        {/* REVIEW CARDS */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+        {/* CARDS */}
+        <div
+          ref={scrollRef}
+          className="flex gap-6 overflow-x-hidden max-w-[1300px]"
+        >
           {reviews.map((review) => (
             <div
               key={review.id}
-              className="bg-white p-3 shadow-sm"
+              className="bg-white p-3 shadow-sm min-w-[390px] flex-shrink-1"
             >
-              {/* USER */}
               <div className="flex items-center gap-3">
                 <img
                   src={review.avatar}
-                  alt=""
                   className="w-10 h-10 rounded-full"
+                  alt=""
                 />
                 <div className="border-l border-orange-400 pl-2 h-10">
-                  <h4 className="font-semibold ">{review.name}</h4>
+                  <h4 className="font-semibold">
+                    {review.name}
+                  </h4>
                   <p className="text-xs text-orange-500">
                     {review.location}
                   </p>
                 </div>
-                <div className="flex flex-col  ml-19  justify-between mt-3">
-                <div className="flex flex-row text-orange-400 ">
-                  {Array(review.rating)
-                    .fill(0)
-                    .map((_, i) => (
-                      <FaStar key={i} />
-                    ))}
-                </div>
-                <p className="text-xs text-gray-400">{review.date}</p>
               </div>
-              </div> <p className="text-sm text-gray-600 mt-2">
-        {review.text}
-      </p>
-                          </div>
-                          
+              <div className="flex flex-col ml-1 justify-between mt-3">
+              <div className="flex flex-row text-orange-400 mt-2">
+                {Array(review.rating)
+                  .fill(0)
+                  .map((_, i) => (
+                    <FaStar key={i} />
+                  ))}
+              </div>
+
+              <p className="text-xs text-gray-400">
+                {review.date}
+              </p>
+              <p className="text-sm">
+                {review.text}
+              </p>
+            </div></div>
           ))}
         </div>
-
-        {/* OVERALL RATING */}
-        <div className="mt-3 text-center absolute ml-135">
-          <div className="inline-block bg-white px-6 py-2 rounded-xl shadow">
+      <div className="mt-3 text-center absolute ml-135">
+        
+      </div><div className="inline-block bg-white px-6 py-2 rounded-xl shadow absolute mt-4 ml-17 md:!ml-85 lg:!ml-135">
             <h1 className="!text-5xl font-bold">3.4</h1>
             <div className="flex justify-center text-orange-400 mt-1">
               <FaStar /><FaStar /><FaStar /><FaStar />
@@ -102,8 +145,6 @@ export default function Customarreviews() {
               1,360 reviews
             </p>
           </div>
-        </div>
-
       </div>
     </div>
   );

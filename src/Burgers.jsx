@@ -4,14 +4,10 @@ import Burger2 from './assets/images/Burger2.png';
 
 
 const burgers = [
+  
   {
-    title: "Royal Cheese Burger with extra Fries",
-    desc: "1 McChicken™, 1 Big Mac™, 1 Royal Cheeseburger, 3 medium fries, 3 cold drinks",
-    price: "GBP 23.10",
-  },
-  {
-    title: "The classics for 3",
-    desc: "1 McChicken™, 1 Big Mac™, 1 Royal Cheeseburger, 3 medium fries, 3 cold drinks",
+    title: "Royal Cheese Burger  with extra Frie",
+    desc: "1 McChicken™, 1 Big Mac™,  1 Royal Cheeseburger, 3 medium",
     price: "GBP 23.10",
   },
   {
@@ -35,26 +31,32 @@ const burgers = [
     desc: "1 McChicken™, 1 Big Mac™, 1 Royal Cheeseburger, 3 medium fries, 3 cold drinks",
     price: "GBP 23.10",
   },
+   {
+    title: "The classics for 3",
+    desc: "1 McChicken™, 1 Big Mac™, 1 Royal Cheeseburger, 3 medium fries, 3 cold drinks",
+    price: "GBP 23.10",
+  },
+  
 ];
 
 export default function Burgers() {
   return (
-    <div className="max-w-7xl mx-auto px-4 py-6">
+    <div className="max-w-7xl mx-auto px-4 py-">
       <h2 className="text-2xl font-bold mb-5 text-black">Burgers</h2>
 
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 py-5">
+    <div className="grid md:!grid-cols-2 lg:!grid-cols-3  gap-3 py-2">
   {burgers.map((item, index) => (
     <div
       key={index}
-      className="relative bg-white rounded-xl shadow-md px-3 pt-2 flex gap-2 hover:shadow-lg transition"
+      className="relative bg-white rounded-xl shadow  pt-3 px-4 flex gap-2 hover:shadow-lg transition"
     >
       {/* LEFT CONTENT */}
       <div className="flex flex-col justify-between flex-1">
         <div>
-          <h3 className="text-lg font-bold mb-1">
+          <h2 className="!text-sm font-bold mb-1  ">
             {item.title}
-          </h3>
-          <p className="text-xs text-gray-500 leading-relaxed">
+          </h2>
+          <p className="!text-xs text-gray-500 leading-relaxed">
             {item.desc}
           </p>
         </div>
@@ -70,7 +72,7 @@ export default function Burgers() {
       />
 
       {/* PLUS BUTTON – SAME POSITION FOR ALL */}
-      <div className="bg-gray-200 w-15 h-15 absolute right-4 top-19 rounded-tl-3xl">
+      <div className="bg-gray-200 w-15 h-15 absolute right-6 top-21 rounded-tl-3xl">
       <button
         className="absolute top-4 right-3 w-8 h-8 bg-black text-white 
                    rounded-pill flex items-center justify-center text-lg"

@@ -9,10 +9,12 @@ import { MdPerson } from "react-icons/md";
 import Location from "./assets/images/Location.png";
 import Image from "react-bootstrap/Image";
 import Burger from './assets/images/Burger.png';
+import { useNavigate } from "react-router-dom";
 
 export default function Restaurant(){
   const [active, setActive] = useState("Home");
     const [open, setOpen] = useState(false);
+  const navigate = useNavigate();
   
     return(
         <>
@@ -76,8 +78,12 @@ export default function Restaurant(){
               ].map((item) => (
                 <button
                   key={item}
-                  onClick={() => setActive(item)}
-                  className={`px-2 py-1 rounded-pill md:!rounded-pill transition min-w-fit
+onClick={() => {
+      setActive(item);
+      if (item === "Home") {
+        navigate("/");
+      }
+    }}                  className={`px-2 py-1 rounded-pill md:!rounded-pill transition min-w-fit
                 ${
                   active === item
                     ? "bg-orange-400 text-white"

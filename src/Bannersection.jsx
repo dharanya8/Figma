@@ -19,10 +19,10 @@ import { MdPerson } from "react-icons/md";
 import { PiBasketBold } from "react-icons/pi";
 import { FaCheckCircle } from "react-icons/fa";
 import { FaCircleArrowDown } from "react-icons/fa6";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 
 function BannerSection() {
-  const [active, setActive] = useState("Home");
+  const [active, setActive] = useState("Restaurant");
   const [open, setOpen] = useState(false);
 const navigate = useNavigate();
 
@@ -90,7 +90,7 @@ const navigate = useNavigate();
                   onClick={() => {
       setActive(item);
       if (item === "Restaurants") {
-        navigate("/Innerpage");
+        navigate("/Restaurant");
       }
     }}
                   className={`px-2 py-1 rounded-pill md:!rounded-pill transition min-w-fit

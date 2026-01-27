@@ -1,7 +1,4 @@
-import React from "react";
-import Burger1 from "./assets/images/Burger1.png"; 
-import Burger2 from './assets/images/Burger2.png';
-
+import Fries from "./assets/images/Fries.png"; 
 
 const burgers = [
   {
@@ -39,8 +36,8 @@ const burgers = [
 
 export default function Burgers() {
   return (
-    <div className="max-w-7xl mx-auto px-4 py-6">
-      <h2 className="text-2xl font-bold mb-5 text-black">Burgers</h2>
+    <div className="max-w-7xl mx-auto px-4 py-3">
+      <h2 className="text-2xl font-bold mb-5 !text-orange-400">Fries</h2>
 
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 py-5">
   {burgers.map((item, index) => (
@@ -64,7 +61,7 @@ export default function Burgers() {
 
       {/* RIGHT IMAGE */}
       <img
-        src={Burger1}
+        src={Fries}
         alt="burger"
         className="w-32 h-32 object-cover rounded-lg"
       />

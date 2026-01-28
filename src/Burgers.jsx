@@ -1,8 +1,5 @@
-import React from "react";
+import React,{useState} from "react";
 import Burger1 from "./assets/images/Burger1.png"; 
-import Burger2 from './assets/images/Burger2.png';
-
-
 const burgers = [
   
   {
@@ -17,21 +14,25 @@ const burgers = [
   },
 
   {
+    id:1,
     title: "The classics for 3",
     desc: "1 McChicken™, 1 Big Mac™, 1 Royal Cheeseburger, 3 medium fries, 3 cold drinks",
     price: "GBP 23.10",
   },
   {
+    id:2,
     title: "The classics for 3",
     desc: "1 McChicken™, 1 Big Mac™, 1 Royal Cheeseburger, 3 medium fries, 3 cold drinks",
     price: "GBP 23.10",
   },
   {
+    id:3,
     title: "The classics for 3",
     desc: "1 McChicken™, 1 Big Mac™, 1 Royal Cheeseburger, 3 medium fries, 3 cold drinks",
     price: "GBP 23.10",
   },
    {
+    id:4,
     title: "The classics for 3",
     desc: "1 McChicken™, 1 Big Mac™, 1 Royal Cheeseburger, 3 medium fries, 3 cold drinks",
     price: "GBP 23.10",
@@ -39,7 +40,9 @@ const burgers = [
   
 ];
 
-export default function Burgers() {
+export default function Burgers({addToCart = () => {}}) {
+    const [showPopup, setShowPopup] = useState(false);
+
   return (
     <div className="max-w-7xl mx-auto px-4 py-">
       <h2 className="text-2xl font-bold mb-5 text-black">Burgers</h2>
@@ -76,6 +79,14 @@ export default function Burgers() {
       <button
         className="absolute top-4 right-3 w-8 h-8 bg-black text-white 
                    rounded-pill flex items-center justify-center text-lg"
+                    onClick={() => {
+  addToCart(item);
+  setShowPopup(true);
+
+  setTimeout(() => {
+    setShowPopup(false);
+  }, 2000);
+}}               
       >
         +
       </button></div>
@@ -83,6 +94,12 @@ export default function Burgers() {
   ))}
 
       </div>
+      {showPopup && (
+        <div className="fixed top-6 right-6 bg-green-600 text-white 
+                        px-5 py-3 rounded-xl shadow-lg z-50">
+           Added to basket
+        </div>
+      )}
     </div>
   );
 }

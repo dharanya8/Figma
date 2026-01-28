@@ -39,7 +39,7 @@ export default function Restaurant(){
           </button>
         </div>
         <div className="bg-green-700 flex items-center h-12 w-68 lg:w-70 rounded-b-xl border-green-700 md:ml-21">
-          <Image src={Basket} className="w-8 h-7 ml-5" />
+          <Image src={Basket} onClick={() => navigate("/Menupage")} className="w-8 h-7 ml-5" />
 
           <Image src={Line} className="h-12 ml-3" />
 

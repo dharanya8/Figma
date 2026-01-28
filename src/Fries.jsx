@@ -1,5 +1,5 @@
+import React,{useState} from "react";
 import Fries from "./assets/images/Fries.png"; 
-
 const burgers = [
   {
     title: "Royal Cheese Burger with extra Fries",
@@ -34,7 +34,9 @@ const burgers = [
   },
 ];
 
-export default function Burgers() {
+export default function Burgers({addToCart = () => {}}) {
+      const [showPopup, setShowPopup] = useState(false);
+  
   return (
     <div className="max-w-7xl mx-auto px-4 py-5">
       <h2 className="text-2xl font-bold mb-5 !text-orange-400">Fries</h2>
@@ -71,6 +73,14 @@ export default function Burgers() {
       <button
         className="absolute top-4 right-3 w-8 h-8 bg-black text-white 
                    rounded-pill flex items-center justify-center text-lg"
+                onClick={() => {
+  addToCart(item);
+  setShowPopup(true);
+
+  setTimeout(() => {
+    setShowPopup(false);
+  }, 2000);
+}}                  
       >
         +
       </button></div>

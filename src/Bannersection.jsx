@@ -20,6 +20,7 @@ import { PiBasketBold } from "react-icons/pi";
 import { FaCheckCircle } from "react-icons/fa";
 import { FaCircleArrowDown } from "react-icons/fa6";
 import { useNavigate, useLocation } from "react-router-dom";
+import Menupage from "./Menupage";
 
 function BannerSection() {
   const [active, setActive] = useState("Restaurant");
@@ -47,8 +48,8 @@ const navigate = useNavigate();
             Change Location
           </button>
         </div>
-        <div className="bg-green-700 flex items-center h-12 w-68 lg:w-70 rounded-b-xl border-green-700 md:ml-21">
-          <Image src={Basket} className="w-8 h-7 ml-5" />
+        <div  className="bg-green-700 flex items-center h-12 w-68 lg:w-70 rounded-b-xl border-green-700 md:ml-21">
+          <Image src={Basket} onClick={() => navigate("/Menupage")} className="w-8 h-7 ml-5" />
 
           <Image src={Line} className="h-12 ml-3" />
 

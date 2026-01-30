@@ -36,12 +36,10 @@ export default function StepOrderSummary({
 
   return (
     <div className="p-4 flex flex-col gap-4">
-      {/* Header */}
       <h2 className="text-xl font-bold text-center">
         Order Summary
       </h2>
 
-      {/* Items */}
       <div className="space-y-3 max-h-[300px] overflow-y-auto">
         {cart.map((item) => (
           <div
@@ -64,7 +62,6 @@ export default function StepOrderSummary({
         ))}
       </div>
 
-      {/* Price Summary */}
       <div className="bg-gray-100 rounded-lg p-3 space-y-1 text-sm">
         <div className="flex justify-between">
           <span>Subtotal</span>
@@ -80,7 +77,6 @@ export default function StepOrderSummary({
         </div>
       </div>
 
-      {/* Actions */}
       <div className="flex gap-3 mt-2">
         <button
           onClick={onBack}

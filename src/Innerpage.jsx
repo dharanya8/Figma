@@ -13,9 +13,11 @@ export default function Innerpage(){
         <>
         <Restaurant/>
     <London/>
+    <div className='flex flex-col gap-10 my-10!'>
     <Burgers/>
     <Fries/>
     <Colddrinks/>
+    </div>
     <Deliverinformation/>
     <Restaurantlocation/>
     <Customarreviews/>

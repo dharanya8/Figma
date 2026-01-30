@@ -4,17 +4,10 @@ import StepComplimentary from "./StepComplimentary";
 import StepOrderSummary from "./StepOrderSummary";
 import { useEffect } from "react";
 
-export default function CheckoutModal({ open, step, setStep, cart, setCart }) {
-  useEffect(() => {
-    if (open) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
-    }
-
-    return () => {
-      document.body.style.overflow = "auto";
-    };
+export default function CheckoutModal({ open, step, setStep, cart, setCart, onOrderNow }) {
+ useEffect(() => {
+    document.body.style.overflow = open ? "hidden" : "auto";
+    return () => (document.body.style.overflow = "auto");
   }, [open]);
 
   if (!open) return null;
@@ -34,15 +27,16 @@ export default function CheckoutModal({ open, step, setStep, cart, setCart }) {
         <StepComplimentary
           cart={cart}
           onBack={() => setStep("CONFIRM")}
-          onNext={(selectedFreeItems) => {
-            console.log("FREE ITEMS:", selectedFreeItems);
-            setStep("ORDER");
-          }}
+          onNext={() => setStep("ORDER")}
         />
       )}
 
       {step === "ORDER" && (
-        <StepOrderSummary cart={cart} onBack={() => setStep("COMPLIMENTARY")} />
+        <StepOrderSummary
+          cart={cart}
+          onBack={() => setStep("COMPLIMENTARY")}
+          onOrderNow={onOrderNow}
+        />
       )}
     </ModalWrapper>
   );

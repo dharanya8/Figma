@@ -48,4 +48,9 @@
   -ms-overflow-style: none;
   scrollbar-width: none;    
 }
+.bg-login {
+  background-image: url('./assets/images/coffeshop.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
 

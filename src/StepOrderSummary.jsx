@@ -1,13 +1,8 @@
 import { useNavigate, useLocation } from "react-router-dom";
 
-export default function StepOrderSummary({
-  cart,
-  onBack,
-}) {
+export default function StepOrderSummary({ cart, onBack, onOrderNow }) {
   const navigate = useNavigate();
-  const location = useLocation();
-  const isLoggedIn =
-  localStorage.getItem("isLoggedIn") === "true";
+  const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
 
   const deliveryFee = 4;
 
@@ -24,21 +19,20 @@ export default function StepOrderSummary({
   const handleOrderNow = () => {
     if (!isLoggedIn) {
       navigate("/login", {
+        replace: true,
         state: {
           returnTo: "/menu",
-          checkoutStep: "ORDER",
+          resumeCheckout: "ORDER",
         },
       });
       return;
     }
-
+    onOrderNow();
   };
 
   return (
     <div className="p-4 flex flex-col gap-4">
-      <h2 className="text-xl font-bold text-center">
-        Order Summary
-      </h2>
+      <h2 className="text-xl font-bold text-center">Order Summary</h2>
 
       <div className="space-y-3 max-h-[300px] overflow-y-auto">
         {cart.map((item) => (
@@ -47,12 +41,8 @@ export default function StepOrderSummary({
             className="flex justify-between items-center border-b pb-2"
           >
             <div>
-              <p className="font-semibold text-sm">
-                {item.title}
-              </p>
-              <p className="text-xs text-gray-500">
-                Qty: {item.qty}
-              </p>
+              <p className="font-semibold text-sm">{item.title}</p>
+              <p className="text-xs text-gray-500">Qty: {item.qty}</p>
             </div>
 
             <div className="font-semibold text-sm">

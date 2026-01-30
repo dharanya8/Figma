@@ -1,5 +1,5 @@
 import { useNavigate, useLocation } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import star from "./assets/images/star.png";
 import Basket from "./assets/images/Basket.png";
 import Forward from "./assets/images/Forward.png";
@@ -10,12 +10,32 @@ import { MdPerson } from "react-icons/md";
 import Logo from "./assets/images/LOGO 1.png";
 import Image from "react-bootstrap/Image";
 import { Link } from "react-router-dom";
-
+import { toast } from "react-toastify";
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  useEffect(() => {
+    const loggedIn = localStorage.getItem("isLoggedIn") === "true";
+    setIsLoggedIn(loggedIn);
+  }, []);
+
+  const handleLogout = () => {
+    if (isLoggedIn) {
+      const confirmLogout = window.confirm("Are you sure you want to logout?");
+      if (confirmLogout) {
+        localStorage.removeItem("isLoggedIn");
+        localStorage.removeItem("userEmail");
+        setIsLoggedIn(false);
+        toast.success("Logged out successfully!");
+      }
+    } else {
+      toast.error("You must login first.");
+    }
+  };
 
   const menuItems = [
     { name: "Home", path: "/" },
@@ -80,7 +100,7 @@ export default function Navbar() {
             </div>
 
             {/* Desktop Menu */}
-            <div className="hidden lg:flex !ml-7 !xl:ml-35 gap-5 font-medium">
+            <div className="hidden lg:flex ml-7 xl:ml-35 gap-5 font-medium">
   {menuItems.map((item) => (
     <button
       key={item.name}
@@ -91,28 +111,32 @@ export default function Navbar() {
             ? "bg-orange-400 text-white"
             : "text-black hover:text-orange-400 hover:bg-gray-200"
         }`}
-    >
-      {item.name}
-    </button>
-  ))}
-</div>
-
+                >
+                  {item.name}
+                </button>
+              ))}
+            </div>
 
             {/* Right Side */}
             <div className="flex items-center gap-3 group">
-              {/* Login */}
-              <Link to="/login"
-                className="hidden lg:flex bg-slate-900 text-white px-4 py-2 rounded-pill 
-          flex items-center gap-2 text-sm font-semibold"
-              >
-                <span
-                  className="bg-orange-400 w-5 h-5 rounded-pill 
-            flex items-center justify-center"
+              {isLoggedIn ? (
+                <button
+                  onClick={handleLogout}
+                  className="hidden lg:flex bg-red-600 text-white px-4 py-2 rounded-pill font-semibold"
                 >
-                  <MdPerson className="text-black text-md" />
-                </span>
-                Login / Signup
-              </Link>
+                  Logout
+                </button>
+              ) : (
+                <Link
+                  to="/login"
+                  className="hidden lg:flex bg-slate-900 text-white px-4 py-2 rounded-pill flex items-center gap-2 text-sm font-semibold"
+                >
+                  <span className="bg-orange-400 w-5 h-5 rounded-pill flex items-center justify-center">
+                    <MdPerson className="text-black text-md" />
+                  </span>
+                  Login / Signup
+                </Link>
+              )}
 
               {/* Hamburger - Mobile only */}
               <button
@@ -126,43 +150,52 @@ export default function Navbar() {
 
           {/* MOBILE TOGGLE MENU */}
           {/* MOBILE TOGGLE MENU */}
-          
+
           {open && (
-  <div className="lg:hidden mt-4 bg-white rounded-xl shadow-md p-4 space-y-3">
-    {menuItems.map((item) => (
-      <button
-        key={item.name}
-        onClick={() => {
-          navigate(item.path);
-          setOpen(false);
-        }}
-        className={`block w-full px-4 py-2 rounded-pill font-medium
+            <div className="lg:hidden mt-4 bg-white rounded-xl shadow-md p-4 space-y-3">
+              {menuItems.map((item) => (
+                <button
+                  key={item.name}
+                  onClick={() => {
+                    navigate(item.path);
+                    setOpen(false);
+                  }}
+                  className={`block w-full px-4 py-2 rounded-pill font-medium
           ${
             location.pathname === item.path
               ? "bg-orange-400 text-white"
               : "hover:bg-gray-100"
           }`}
-      >
-        {item.name}
-      </button>
-    ))}
+                >
+                  {item.name}
+                </button>
+              ))}
 
-    {/* Login / Signup (Mobile) */}
-    <Link to="/login"
-      onClick={() => setOpen(false)}
-      className="w-full bg-slate-900 text-white px-4 py-2 rounded-pill
-      flex items-center justify-center gap-2 text-sm font-semibold"
-    >
-      <span
-        className="bg-orange-400 w-5 h-5 rounded-full
-        flex items-center justify-center"
-      >
-        <MdPerson className="text-black text-md" />
-      </span>
-      Login / Signup
-    </Link>
-  </div>
-)}
+              {/* Login / Logout (Mobile) */}
+              {isLoggedIn ? (
+                <button
+                  onClick={() => {
+                    handleLogout();
+                    setOpen(false);
+                  }}
+                  className="w-full bg-red-600 text-white px-4 py-2 rounded-pill font-semibold"
+                >
+                  Logout
+                </button>
+              ) : (
+                <Link
+                  to="/login"
+                  onClick={() => setOpen(false)}
+                  className="w-full bg-slate-900 text-white px-4 py-2 rounded-pill flex items-center justify-center gap-2 text-sm font-semibold"
+                >
+                  <span className="bg-orange-400 w-5 h-5 rounded-full flex items-center justify-center">
+                    <MdPerson className="text-black text-md" />
+                  </span>
+                  Login / Signup
+                </Link>
+              )}
+            </div>
+          )}
         </div>
       </nav>
     </div>

@@ -46,28 +46,28 @@ export default function Navbar() {
             Change Location
           </button>
         </div>
-        <div className="bg-green-700 flex items-center h-12 w-68 lg:w-70 rounded-b-xl border-green-700 md:ml-21">
+        <div className="bg-green-700 flex items-center h-12 w-72 lg:w-70 rounded-b-xl border-green-700 md:ml-21">
           <Image
             src={Basket}
             onClick={() => navigate("/menu")}
-            className="w-8 h-7 ml-5"
+            className="w-8 h-7 !ml-5"
           />
 
-          <Image src={Line} className="h-12 ml-3" />
+          <Image src={Line} className="h-12 !ml-4" />
 
-          <p className="text-white font-semibold text-xs md:text-sm lg:text-xs m-0">
+          <p className="text-white font-semibold text-xs md:text-sm lg:text-sm m-0 !ml-2">
             23 Items
           </p>
 
-          <Image src={Line} className="h-12 ml-3" />
+          <Image src={Line} className="h-12 !ml-3" />
 
-          <p className="text-white font-semibold text-xs md:text-sm m-0">
+          <p className="text-white font-semibold text-xs md:text-sm m-0 !ml-3">
             GBP 79.89
           </p>
 
-          <Image src={Line} className="h-12 ml-3" />
+          <Image src={Line} className="h-12 !ml-3" />
 
-          <Image src={Forward} className="w-7 h-7 ml-2" />
+          <Image src={Forward} className="w-7 h-7 !ml-2" />
         </div>
       </div>
       <nav className="w-full py-1 md:py-3 mt-4 border-gray-200">
@@ -80,7 +80,7 @@ export default function Navbar() {
             </div>
 
             {/* Desktop Menu */}
-            <div className="hidden lg:flex ml-7 xl:ml-35 gap-5 font-medium">
+            <div className="hidden lg:flex !ml-7 !xl:ml-35 gap-5 font-medium">
   {menuItems.map((item) => (
     <button
       key={item.name}

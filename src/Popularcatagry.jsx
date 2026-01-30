@@ -8,9 +8,9 @@ import Rectangle17 from "./assets/images/Rectangle17.png";
 
 export default function Popularcatagry() {
   return (
-    <div className="my-6 px-4 max-w-7xl mx-auto">
+    <div className="!my-6 !px-8 max-w-7xl mx-auto">
 
-      <h2 className="text-lg font-bold">
+      <h2 className="md:!text-xl !font-bold">
         order.uk Popular Categories
       </h2>
 

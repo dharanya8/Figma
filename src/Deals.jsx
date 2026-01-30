@@ -5,7 +5,7 @@ import Image from "react-bootstrap/Image";
 
 export default function Deals() {
   return (
-    <div className="my-6 px-4 max-w-7xl mx-auto">
+    <div className="!my-6 !px-8 !max-w-7xl !mx-auto">
 
       {/* TOP SECTION */}
       <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-3">
@@ -26,7 +26,7 @@ export default function Deals() {
             sushi
           </button>
 
-          <button className="py-2 px-4 rounded-pill border-2 border-orange-400 text-sm md:text-base">
+          <button className="py-2 px-4 rounded-pill border-2 border-orange-400 text-orange-400 text-sm md:text-base">
             pizza & fast food
           </button>
 

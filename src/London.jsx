@@ -10,15 +10,15 @@ export default function London(){
   
     return(
         <>
-        <div className="flex flex-col md:!flex-row justify-between px-15">
-            <h3 className="text-black !font-bold py-10"> All Offers from McDonald’s East London</h3>
+        <div className="flex flex-col md:!flex-row justify-between !px-15">
+            <h3 className="text-black !font-bold !py-10"> All Offers from McDonald’s East London</h3>
            <div className="mt-1 md:!mt-5">
             <div className="flex items-center border-1 border-gray-800 rounded-full overflow-hidden  w-full max-w-[350px] bg-white mt-2">
               
               <input
                 type="text"
                 placeholder="search for menu"
-                className="flex-1 pl-5  py-2 text-xs  sm:text-sm outline-none placeholder-gray-800"
+                className="flex-1 !pl-5  !py-2 text-xs  sm:text-sm outline-none placeholder-gray-800"
               />
             </div>
             </div>
@@ -27,7 +27,7 @@ export default function London(){
   grid-cols-1 
   md:grid-cols-2 
   lg:grid-cols-10 
- bg-gray-200 px-15 py-3 gap-10">
+ bg-gray-200 !px-15 !py-3 gap-10">
           <button className="bg-black text-white font-bold   py-1 rounded-pill">Offers</button>
           <button onClick={()=>{navigate("/Burgers")}}className="text-black font-bold">Burgers</button>
           <button onClick={()=>{navigate("/Fries")}}className="text-black font-bold">Fries</button>
@@ -39,27 +39,27 @@ export default function London(){
           <button className="text-black font-bold">Sauces</button>
           <button className="text-black font-bold">Orbit</button>
             </div>
-            <div className="px-4 md:!px-15
+            <div className="!px-10 !md:!px-15
   grid 
   grid-cols-1 
   md:grid-cols-2 
   lg:grid-cols-3 
-  gap-3 
-  mt-4 py-15
+  !gap-3 
+  !mt-4 !py-15
 ">
   <Image
     src={Firstorder}
-    className="w-full h-auto object-cover rounded-xl"
+    className="!w-full !h-auto object-cover rounded-xl"
   />
 
   <Image
     src={vegan}
-    className="w-full h-auto object-cover rounded-xl"
+    className="!w-full h-auto object-cover rounded-xl"
   />
 
   <Image
     src={Icegcream}
-    className="w-full h-auto object-cover rounded-xl"
+    className="w-full !h-auto object-cover rounded-xl"
   />
 </div>
         </>

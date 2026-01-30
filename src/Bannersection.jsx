@@ -16,7 +16,7 @@ import Navbar from "./Navbar";
 function BannerSection() {
   
   return (
-    <div className="px-4 lg:!px-15 font-sans">
+    <div className="!px-4 lg:!px-15 font-sans">
       <Navbar />
       <div className="bg-gray-50 border-1 border-gray-100 mt-4 rounded-xl flex flex-row items-center justify-between overflow-hidden">
         <div className="flex flex-col py-13 md:!py-28 pl-2 md:!pl-2 lg:!pl-10 xl:!pl-15">
@@ -47,20 +47,20 @@ function BannerSection() {
         <div className="flex relative md:group">
           <Image
             src={image}
-            className="md:flex position-relative h-110 mt-10 hidden md:group"
+            className="md:flex position-relative h-110 !mt-10 hidden md:group"
           ></Image>
           <Image
             src={girl2}
-            className="position-absolute h-95 w-70 mt-25 right-55 md:right-40 lg:!right-55"
+            className="position-absolute h-95 w-70 !mt-25 right-55 md:right-40 lg:!right-55"
           ></Image>
           <Image
             src={girl}
             alt="Banner"
-            className="xl:!flex w-full h-105 rounded-xl object-cover position-absolute mt-15 right-92 hidden lg:group"
+            className="xl:!flex w-full h-105 rounded-xl object-cover position-absolute !mt-15 right-92 hidden lg:group"
           />
 
-          <div className="absolute top-6 right-4 space-y-3 w-70 hidden md:block">
-            <div className="bg-white px-3 rounded-lg shadow-md text-sm pt-1 -translate-x-18 mt-13">
+          <div className="absolute !top-6 right-4 space-y-3 w-70 hidden md:block">
+            <div className="bg-white px-3 rounded-lg shadow-md text-sm pt-1 -translate-x-18 !mt-13">
               <div className="flex ">
                 <Image src={Logo} className="w-15 mt-1"></Image>
                 <span className="ml-40 text-gray-400">now</span>
@@ -77,26 +77,26 @@ function BannerSection() {
                 />
               </p>
             </div>
-            <div className="bg-white pl-4 pt-1 rounded-lg shadow-md text-sm mt-18 ml-4">
+            <div className="bg-white !pl-4 pt-1 rounded-lg shadow-md text-sm !mt-18 ml-4">
               <div className="flex ">
-                <Image src={Logo} className="w-15 mt-1"></Image>
-                <span className="ml-36 text-gray-400">now</span>
+                <Image src={Logo} className="w-15 !mt-1"></Image>
+                <span className="!ml-36 text-gray-400">now</span>
               </div>
-              <h6 className="font-semibold text-sm mt-1 flex">
+              <h6 className="font-semibold text-sm !mt-1 flex">
                 {" "}
                 Order Accepted!
-                <Image src={tick} className="w-5  ml-6 h-5"></Image>
+                <Image src={tick} className="w-5 !ml-6 h-5"></Image>
               </h6>
               <p className="relative text-xs text-gray-900 -top-2 ">
                 Your order will be delivered shortly
               </p>
             </div>
-            <div className="bg-white px-3 pt-1 rounded-lg shadow-md text-sm mt-16 -translate-x-6">
+            <div className="bg-white !px-3 !pt-1 rounded-lg shadow-md text-sm !mt-16 -translate-x-6">
               <div className="flex">
-                <Image src={Logo} className="w-15 mt-1"></Image>
-                <span className="ml-40 text-gray-400">now</span>
+                <Image src={Logo} className="w-15 !mt-1"></Image>
+                <span className="!ml-40 text-gray-400">now</span>
               </div>
-              <h6 className="font-semibold text-xs mt-1 flex">
+              <h6 className="font-semibold text-xs !mt-1 flex">
                 {" "}
                 Your rider's nearby🎉
               </h6>

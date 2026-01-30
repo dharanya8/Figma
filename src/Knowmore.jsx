@@ -4,16 +4,16 @@ import food from "./assets/images/food.png";
 
 export default function Knowmore() {
   return (
-    <div className="max-w-7xl mx-auto bg-gray-100 px-6 sm:px-8 md:px-20 py-8 md:py-14 rounded-2xl">
+    <div className="!max-w-7xl !mx-auto bg-gray-100 !px-6 !sm:px-8 !md:px-20 !py-8 !md:py-14 rounded-2xl">
       
       {/* Header */}
-      <div className="flex flex-col md:flex-row items-center justify-between mb-8 text-center md:text-left">
+      <div className="flex flex-col md:flex-row items-center justify-between !mb-8 text-center md:text-left">
         <h2 className="text-xl sm:text-2xl font-bold">
           Know more about us!
         </h2>
 
-        <div className="flex flex-wrap justify-center md:justify-start gap-3 mt-4 md:mt-0 text-sm">
-          <button className="border-2 border-orange-400 text-orange-500 px-4 py-2 rounded-pill">
+        <div className="flex flex-wrap justify-center md:justify-start gap-3 !mt-4 md:mt-0 text-sm">
+          <button className="border-2 border-orange-400 text-orange-500 !px-4 !py-2 rounded-pill">
             Frequent Questions
           </button>
           <button>Who we are?</button>
@@ -23,11 +23,11 @@ export default function Knowmore() {
       </div>
 
       {/* Content Box */}
-      <div className="bg-white rounded-2xl p-6 md:p-10 grid grid-cols-1 md:grid-cols-4 gap-8">
+      <div className="bg-white rounded-2xl !p-6 !md:p-10 grid grid-cols-1 md:grid-cols-4 gap-8">
         
         {/* FAQ */}
-        <div className="space-y-4 text-center md:text-left">
-          <button className="w-full bg-orange-500 text-white text-sm py-2 rounded-pill font-bold">
+        <div className="!space-y-4 text-center md:text-left">
+          <button className="w-full bg-orange-500 text-white text-sm !py-2 rounded-pill font-bold">
             How does Order.UK work?
           </button>
 
@@ -50,9 +50,9 @@ export default function Knowmore() {
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 md:ml-6">
 
             {/* Card 1 */}
-            <div className="bg-gray-200 rounded-xl p-4 md:!p-2 lg:!p-4 text-center">
-              <h4 className="font-semibold mb-4">Place an Order!</h4>
-              <img src={bell} alt="order" className="w-20 mx-auto mb-4" />
+            <div className="bg-gray-200 rounded-xl !p-4 md:!p-2 lg:!p-4 text-center">
+              <h4 className="font-semibold !mb-4">Place an Order!</h4>
+              <img src={bell} alt="order" className="!w-20 mx-auto mb-4" />
               <p className="text-sm">
                 Place order through our website or Mobile app
               </p>

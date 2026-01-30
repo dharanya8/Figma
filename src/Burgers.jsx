@@ -1,5 +1,5 @@
 import { useNavigate } from "react-router-dom";
-import { burgers } from "./burgers.js";
+import { burgers } from "./Burgers1.js";
 
 export default function Burgers({ layout = "sm:grid-cols-2 lg:grid-cols-3" }) {
   const navigate = useNavigate();

@@ -9,7 +9,7 @@ import Rectangle6 from "./assets/images/Rectangle6.png";
 export default function Popularrestaurant() {
   return (
     <>
-      <div className="my-5 max-w-7xl mx-auto px-4">
+      <div className="my-5 max-w-7xl mx-auto !px-8">
         <div className="text-lg font-bold mb-4">
           Popular Restaurants
         </div>

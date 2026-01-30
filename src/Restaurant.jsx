@@ -5,7 +5,7 @@ export default function Restaurant(){
   
     return(
         <>
-        <div className="px-4 lg:!px-15 font-sans">
+        <div className="!px-15 !lg:!px-15 font-sans">
     <Navbar />
 
   {/* TEXT OVER IMAGE */}
@@ -15,7 +15,7 @@ export default function Restaurant(){
   <img
     src={Burger}
     alt="Burger"
-    className="w-full h-95 object-cover opacity-25 rounded-xl"
+    className="w-full !h-95 object-cover opacity-25 rounded-xl"
   />
 
   {/* TEXT OVER IMAGE */}

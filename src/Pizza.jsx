@@ -1,5 +1,5 @@
 import pizzaicon from "./assets/images/pizza.png";
-import { pizza } from "./pizza.js";
+import { pizza } from "./Pizza1";
 import { useNavigate } from "react-router-dom";
 
 export default function Pizza() {

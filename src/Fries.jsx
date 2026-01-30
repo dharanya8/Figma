@@ -1,4 +1,4 @@
-import { fries } from "./fries.js";
+import { fries } from "./Fries1";
 import { useNavigate } from "react-router-dom";
 
 export default function Fries({ layout = "sm:grid-cols-2 lg:grid-cols-3" }) {

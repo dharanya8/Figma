@@ -1,6 +1,6 @@
 import colddrinksimg from "./assets/images/Colddrinks.png";
 import { useNavigate } from "react-router-dom";
-import { colddrinks } from "./colddrinks";
+import { colddrinks } from "./Colddrinks1";
 
 export default function Colddrinks({ layout = "sm:grid-cols-2 lg:grid-cols-3" }) {
   const navigate = useNavigate();

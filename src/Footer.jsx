@@ -3,10 +3,10 @@ import footerlogo from "./assets/images/footerlogo.png";
 
 export default function Footer() {
   return (
-    <footer className="px- py-4 mt-6">
+    <footer className=" !py-9 mt-6">
 
       {/* TOP FOOTER */}
-      <div className="bg-gray-200 py-8 px-4 md:px-10">
+      <div className="bg-gray-200 !py-8 !px-9 !md:px-10">
         <div className="flex flex-col lg:flex-row gap-10 justify-between px-12">
 
           {/* COLUMN 1 */}
@@ -30,7 +30,7 @@ export default function Footer() {
               <input
                 type="email"
                 placeholder="youremail@gmail.com"
-                className="flex-1 px-4 py-2 text-sm outline-none"
+                className="flex-1 !px-4 !py-2 text-sm outline-none"
               />
               <button className="bg-orange-500 text-white px-6 py-2 text-sm font-semibold hover:bg-orange-600">
                 Subscribe
@@ -85,7 +85,7 @@ export default function Footer() {
       </div>
 
       {/* BOTTOM FOOTER */}
-      <div className="bg-blue-950 text-white px-18 py-4">
+      <div className="bg-blue-950 text-white !px-9 !py-4">
         <div className="flex flex-col md:flex-row justify-between items-center gap-3 text-md">
 
           <p className="mt-2 ml-">

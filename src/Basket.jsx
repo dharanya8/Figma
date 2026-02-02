@@ -3,10 +3,14 @@ import { useState } from "react";
 import erroricon from "./assets/images/Error.png";
 import { IoArrowForwardCircleSharp } from "react-icons/io5";
 import basketicon from "./assets/images/Basket.png";
+import { useSelector, useDispatch } from "react-redux";
+import { addToCart, removeFromCart, updateQty } from "./cartSlice";
 
-export default function Basket({ cart, setCart, onCheckout }) {
+export default function Basket({ onCheckout }) {
   const deliveryFee = 4;
   const MIN_ORDER = 20;
+  const cart = useSelector((state) => state.cart.items);
+  const dispatch = useDispatch();
 
   const [showError, setShowError] = useState(false);
 
@@ -48,13 +52,7 @@ export default function Basket({ cart, setCart, onCheckout }) {
               <button
                 className="text-2xl! font-bold"
                 onClick={() =>
-                  setCart(
-                    cart
-                      .map((i) =>
-                        i.id === item.id ? { ...i, qty: i.qty - 1 } : i,
-                      )
-                      .filter((i) => i.qty > 0),
-                  )
+                  dispatch(updateQty({ id: item.id, qty: item.qty - 1 }))
                 }
               >
                 -
@@ -65,11 +63,7 @@ export default function Basket({ cart, setCart, onCheckout }) {
               <button
                 className="text-2xl! font-bold"
                 onClick={() =>
-                  setCart(
-                    cart.map((i) =>
-                      i.id === item.id ? { ...i, qty: i.qty + 1 } : i,
-                    ),
-                  )
+                  dispatch(updateQty({ id: item.id, qty: item.qty + 1 }))
                 }
               >
                 +
@@ -84,7 +78,7 @@ export default function Basket({ cart, setCart, onCheckout }) {
             <div className="flex justify-end">
               <FaTrash
                 className="text-red-500 cursor-pointer"
-                onClick={() => setCart(cart.filter((i) => i.id !== item.id))}
+                onClick={() => dispatch(removeFromCart(item.id))}
               />
             </div>
           </div>
@@ -106,10 +100,9 @@ export default function Basket({ cart, setCart, onCheckout }) {
         </div>
       </div>
 
-      <div className="mx-2"
-      onClick={handleCheckoutClick}>
+      <div className="mx-2" onClick={handleCheckoutClick}>
         <button
-        onClick={() => canCheckout && onCheckout()}
+          onClick={() => canCheckout && onCheckout()}
           className={`w-full py-3 rounded-md! font-semibold transition flex items-center justify-center px-4 text-xl! gap-4
           ${
             canCheckout ? "bg-[#028643] text-white" : "bg-[#FFB1B1] text-white"
@@ -118,9 +111,7 @@ export default function Basket({ cart, setCart, onCheckout }) {
           <div>
             <IoArrowForwardCircleSharp size={28} />
           </div>
-          <div className="">
-              Checkout!
-          </div>
+          <div>Checkout!</div>
         </button>
       </div>
 

@@ -3,11 +3,16 @@ import StepConfirmItems from "./StepConfirmItems";
 import StepComplimentary from "./StepComplimentary";
 import StepOrderSummary from "./StepOrderSummary";
 import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
-export default function CheckoutModal({ open, step, setStep, cart, setCart, onOrderNow }) {
- useEffect(() => {
+export default function CheckoutModal({ open, step, setStep, onOrderNow }) {
+  const cart = useSelector((state) => state.cart.items);
+
+  useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "auto";
-    return () => (document.body.style.overflow = "auto");
+    return () => {
+      document.body.style.overflow = "auto";
+    };
   }, [open]);
 
   if (!open) return null;
@@ -17,7 +22,6 @@ export default function CheckoutModal({ open, step, setStep, cart, setCart, onOr
       {step === "CONFIRM" && (
         <StepConfirmItems
           cart={cart}
-          setCart={setCart}
           onNext={() => setStep("COMPLIMENTARY")}
           onClose={() => setStep(null)}
         />

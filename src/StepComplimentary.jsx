@@ -2,28 +2,29 @@ import { useState } from "react";
 import { FaCheck } from "react-icons/fa";
 import foodbanner from "./assets/images/Group8.png";
 import Image from "react-bootstrap/Image";
+import { useSelector, useDispatch } from "react-redux";
+import { addToCart } from "./cartSlice";
 
 const complimentaryItems = [
-  {
-    id: "coke",
-    title: "Free Coke",
-  },
-  {
-    id: "fries",
-    title: "Free Fries",
-  },
-  {
-    id: "dip",
-    title: "Extra Dip",
-  },
-  {
-    id: "meat",
-    title: "Beef"
-  }
+  { id: "coke", title: "Free Coke", price: 0 },
+  { id: "fries", title: "Free Fries", price: 0 },
+  { id: "dip", title: "Extra Dip", price: 0 },
+  { id: "meat", title: "Beef", price: 0 },
 ];
 
-export default function StepComplimentary({ cart, onNext, onBack }) {
-  const total = cart.reduce((sum, item) => sum + item.qty * item.price, 0);
+export default function StepComplimentary({ onNext, onBack }) {
+  const cart = useSelector((state) => state.cart.items);
+  const dispatch = useDispatch();
+
+  const total = cart.reduce(
+    (sum, item) =>
+      sum +
+      (typeof item.price === "string"
+        ? parseFloat(item.price.replace("GBP ", ""))
+        : item.price) *
+        item.qty,
+    0
+  );
 
   const maxSelect = total >= 100 ? 2 : total >= 50 ? 1 : 0;
 
@@ -34,10 +35,16 @@ export default function StepComplimentary({ cart, onNext, onBack }) {
       setSelected(selected.filter((i) => i !== id));
       return;
     }
-
     if (selected.length >= maxSelect) return;
-
     setSelected([...selected, id]);
+  };
+
+  const handleNext = () => {
+    selected.forEach((id) => {
+      const item = complimentaryItems.find((c) => c.id === id);
+      if (item) dispatch(addToCart({ ...item, qty: 1 }));
+    });
+    onNext();
   };
 
   return (
@@ -52,7 +59,7 @@ export default function StepComplimentary({ cart, onNext, onBack }) {
 
         <p className="text-lg font-bold text-center text-[#FC8A06] mb-4">
           Please select up to <span className="font-bold">{maxSelect}</span>{" "}
-          options free{maxSelect > 1 ? "s" : ""}
+          option{maxSelect > 1 ? "s" : ""} free
         </p>
 
         <div className="flex-1 grid grid-cols-3 gap-4">
@@ -64,17 +71,14 @@ export default function StepComplimentary({ cart, onNext, onBack }) {
               <div
                 key={item.id}
                 onClick={() => !disabled && toggleSelect(item.id)}
-                className={`flex items-center gap-2 cursor-pointer select-none
-    ${disabled ? "opacity-40 cursor-not-allowed" : ""}
-  `}
+                className={`flex items-center gap-2 cursor-pointer select-none ${
+                  disabled ? "opacity-40 cursor-not-allowed" : ""
+                }`}
               >
-    
                 <div
-                  className={`w-5 h-5 flex items-center justify-center border rounded
-      ${
-        isChecked ? "bg-green-600 border-green-600" : "bg-white border-gray-300"
-      }
-    `}
+                  className={`w-5 h-5 flex items-center justify-center border rounded ${
+                    isChecked ? "bg-green-600 border-green-600" : "bg-white border-gray-300"
+                  }`}
                 >
                   {isChecked && <FaCheck className="text-white text-xs" />}
                 </div>
@@ -94,22 +98,18 @@ export default function StepComplimentary({ cart, onNext, onBack }) {
         )}
 
         <div className="mt-4 flex gap-4 items-center justify-end">
-          <button
-              onClick={onBack}
-              className="font-semibold underline"
-            >
-              Take me back
-            </button>
+          <button onClick={onBack} className="font-semibold underline">
+            Take me back
+          </button>
 
           <button
-            onClick={() => onNext(selected)}
+            onClick={handleNext}
             disabled={selected.length !== maxSelect}
-            className={`w-45 py-2 rounded-md! font-semibold
-          ${
-            selected.length === maxSelect
-              ? "bg-[#028643] text-white"
-              : "bg-gray-300 text-gray-600 cursor-not-allowed"
-          }`}
+            className={`w-45 py-2 rounded-md! font-semibold ${
+              selected.length === maxSelect
+                ? "bg-[#028643] text-white"
+                : "bg-gray-300 text-gray-600 cursor-not-allowed"
+            }`}
           >
             Next
           </button>

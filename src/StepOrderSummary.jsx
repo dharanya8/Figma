@@ -1,8 +1,12 @@
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+import deliveryorder from "./assets/images/Deliveryscooter.png";
 
-export default function StepOrderSummary({ cart, onBack, onOrderNow }) {
+export default function StepOrderSummary({ onBack, onOrderNow }) {
   const navigate = useNavigate();
   const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
+  
+  const cart = useSelector((state) => state.cart.items);
 
   const deliveryFee = 4;
 
@@ -32,9 +36,16 @@ export default function StepOrderSummary({ cart, onBack, onOrderNow }) {
 
   return (
     <div className="p-4 flex flex-col gap-4">
-      <h2 className="text-xl font-bold text-center">Order Summary</h2>
+      <div className="flex flex-col items-center gap-2">
+        <div className="text-4xl text-[#03081F] font-extrabold text-center">
+          Order Now
+        </div>
+        <div className="text-sm">
+          Minimum Delivery is £10
+        </div>
+        </div>
 
-      <div className="space-y-3 max-h-[300px] overflow-y-auto">
+      {/* <div className="space-y-3 max-h-[300px] overflow-y-auto">
         {cart.map((item) => (
           <div
             key={item.id}
@@ -50,7 +61,7 @@ export default function StepOrderSummary({ cart, onBack, onOrderNow }) {
             </div>
           </div>
         ))}
-      </div>
+      </div> */}
 
       <div className="bg-gray-100 rounded-lg p-3 space-y-1 text-sm">
         <div className="flex justify-between">
@@ -67,19 +78,37 @@ export default function StepOrderSummary({ cart, onBack, onOrderNow }) {
         </div>
       </div>
 
-      <div className="flex gap-3 mt-2">
-        <button
-          onClick={onBack}
-          className="w-1/2 border border-gray-400 py-2 rounded-lg"
-        >
-          Back
-        </button>
-
+      <div className="flex flex-col items-center gap-4 mt-2 px-2">
         <button
           onClick={handleOrderNow}
-          className="w-1/2 bg-[#028643] text-white py-2 rounded-lg font-semibold"
+          className="w-1/2 bg-[#03081F] text-white py-3 rounded-full! font-semibold flex items-center gap-4 px-4"
         >
-          Order Now
+          <img src={deliveryorder} alt="delivery" className="w-7 h-7" />
+          <span className="font-extrabold text-[16px]">
+          Deliver my order
+          </span>
+        </button>
+        <button
+          onClick={handleOrderNow}
+          className="w-1/2 bg-[#FC8A06] text-white py-3 rounded-full! font-semibold flex items-center gap-4 px-4"
+        >
+          <img src={deliveryorder} alt="delivery" className="w-7 h-7" />
+          <span className="font-extrabold text-[16px]">
+          I will come & Collect
+          </span>
+        </button>
+      </div>
+      <div>
+        <div className="">
+          <span className="border-b"></span>
+          <span>or</span>
+          <span className="border-b border-"></span>
+        </div>
+        <button
+          onClick={onBack}
+          className="underline text-[#03081F] text-md font-bold"
+        >
+          Cancel & Go back
         </button>
       </div>
 

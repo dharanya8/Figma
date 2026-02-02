@@ -1,22 +1,18 @@
+import { useDispatch } from "react-redux";
+import { updateQty } from "./cartSlice";
 import foodbanner from "./assets/images/Group8.png";
 import Image from "react-bootstrap/Image";
 
-export default function StepConfirmItems({ cart, setCart, onNext, onClose }) {
+export default function StepConfirmItems({ cart, onNext, onClose }) {
+  const dispatch = useDispatch();
   const deliveryfee = 4;
-  const increaseQty = (id) => {
-    setCart((prev) =>
-      prev.map((item) =>
-        item.id === id ? { ...item, qty: item.qty + 1 } : item,
-      ),
-    );
+
+  const increaseQty = (id, currentQty) => {
+    dispatch(updateQty({ id, qty: currentQty + 1 }));
   };
 
-  const decreaseQty = (id) => {
-    setCart((prev) =>
-      prev
-        .map((item) => (item.id === id ? { ...item, qty: item.qty - 1 } : item))
-        .filter((item) => item.qty > 0),
-    );
+  const decreaseQty = (id, currentQty) => {
+    dispatch(updateQty({ id, qty: currentQty - 1 }));
   };
 
   const subtotal = cart.reduce((sum, item) => {
@@ -26,17 +22,17 @@ export default function StepConfirmItems({ cart, setCart, onNext, onClose }) {
         : item.price;
     return sum + item.qty * price;
   }, 0);
+
   const total = subtotal + deliveryfee;
 
   return (
     <div>
       <div>
-        <Image src={foodbanner} className="object-cover w-full h-40"></Image>
+        <Image src={foodbanner} className="object-cover w-full h-40" />
       </div>
+
       <div className="p-4 flex flex-col h-full">
-        <div className="text-lg font-bold mb-4 text-start">
-          Confirm your order
-        </div>
+        <div className="text-lg font-bold mb-4 text-start">Confirm your order</div>
 
         <div className="flex flex-col gap-3 max-h-[30vh] overflow-y-scroll no-scrollbar">
           {cart.map((item) => (
@@ -60,7 +56,7 @@ export default function StepConfirmItems({ cart, setCart, onNext, onClose }) {
 
               <div className="flex items-center gap-3">
                 <button
-                  onClick={() => decreaseQty(item.id)}
+                  onClick={() => decreaseQty(item.id, item.qty)}
                   className="rounded-full! w-4 h-4 bg-[#03081F] font-bold text-white flex items-center justify-center"
                 >
                   −
@@ -71,7 +67,7 @@ export default function StepConfirmItems({ cart, setCart, onNext, onClose }) {
                 </span>
 
                 <button
-                  onClick={() => increaseQty(item.id)}
+                  onClick={() => increaseQty(item.id, item.qty)}
                   className="w-4 h-4 rounded-full! bg-[#03081F] font-bold text-white flex items-center justify-center"
                 >
                   +
@@ -93,10 +89,7 @@ export default function StepConfirmItems({ cart, setCart, onNext, onClose }) {
           </div>
 
           <div className="flex gap-4 items-center justify-end">
-            <button
-              onClick={onClose}
-              className="font-semibold underline"
-            >
+            <button onClick={onClose} className="font-semibold underline">
               Take me back
             </button>
 

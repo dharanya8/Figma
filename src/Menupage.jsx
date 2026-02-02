@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom";
+  import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Basket from "./Basket";
 import Burgers from "./Burgers";
@@ -9,46 +9,41 @@ import Pizza from "./Pizza";
 import CheckoutModal from "./CheckoutModal";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { useSelector, useDispatch } from "react-redux";
+import { addToCart, clearCart } from "./cartSlice";
 
 export default function MenuPage() {
   const location = useLocation();
+  const dispatch = useDispatch();
 
-  const [cart, setCart] = useState([]);
   const [category, setCategory] = useState("");
   const [checkoutStep, setCheckoutStep] = useState(null);
+
+  const cart = useSelector((state) => state.cart.items);
 
   useEffect(() => {
     if (location.state?.selectedItem) {
       const item = location.state.selectedItem;
-
-      setCart((prevCart) => {
-        const exists = prevCart.find((i) => i.id === item.id);
-        if (exists) return prevCart;
-        return [...prevCart, item];
-      });
-
+      dispatch(addToCart({ ...item, qty: 1 }));
       setCategory(location.state.category);
     }
     if (location.state?.resumeCheckout === "ORDER") {
-    setCheckoutStep("ORDER");
-  }
-  }, [location.state]);
-
-  const addToCart = (item) => {
-    const exists = cart.find((i) => i.id === item.id);
-    if (exists) return;
-    setCart([...cart, { ...item, qty: 1 }]);
-  };
+      setCheckoutStep("ORDER");
+    }
+  }, [location.state, dispatch]);
 
   const handleOrderNow = () => {
-  toast.success("Order placed successfully!");
-  setCart([]);
-  setCheckoutStep(null);
-};
+    toast.success("Order placed successfully!");
+    dispatch(clearCart());
+    setCheckoutStep(null);
+  };
+
+  const handleAddToCart = (item) => {
+    dispatch(addToCart({ ...item, qty: 1 }));
+  };
 
   return (
     <div className="flex flex-col gap-4 lg:flex-row max-w-7xl px-4 mx-auto my-4">
-      {/* LEFT */}
       <div className="flex sm:flex-row lg:flex-col overflow-x-scroll no-scrollbar w-full lg:w-[40%] bg-[#FBFBFB] border-1 border-[#BCBCBC] rounded-xl">
         <div className="flex items-center py-2 px-4 lg:py-4! gap-3 border-r sticky left-0 bg-[#028643] lg:bg-[#FBFBFB] lg:border-none">
           <div>
@@ -74,36 +69,32 @@ export default function MenuPage() {
 
       <div className="w-full h-[700px] overflow-y-scroll no-scrollbar pb-4">
         {category === "Burgers" && (
-          <Burgers addToCart={addToCart} layout="grid-cols-1" />
+          <Burgers addToCart={handleAddToCart} layout="grid-cols-1" />
         )}
         {category === "Fries" && (
-          <Fries addToCart={addToCart} layout="grid-cols-1" />
+          <Fries addToCart={handleAddToCart} layout="grid-cols-1" />
         )}
         {category === "ColdDrinks" && (
-          <Colddrinks addToCart={addToCart} layout="grid-cols-1" />
+          <Colddrinks addToCart={handleAddToCart} layout="grid-cols-1" />
         )}
-        {category === "Pizza" && <Pizza addToCart={addToCart} />}
+        {category === "Pizza" && <Pizza addToCart={handleAddToCart} />}
       </div>
 
       <div className="w-full lg:w-[50%]">
         <Basket
           cart={cart}
-          setCart={setCart}
           onCheckout={() => setCheckoutStep("CONFIRM")}
         />
       </div>
+
       <CheckoutModal
         open={checkoutStep !== null}
         step={checkoutStep}
         setStep={setCheckoutStep}
-        cart={cart}
-        setCart={setCart}
         onOrderNow={handleOrderNow}
       />
-      <div>
-        <ToastContainer position="top-right" autoClose={3000} />
-      </div>
+
+      <ToastContainer position="top-right" autoClose={3000} />
     </div>
   );
 }
-  

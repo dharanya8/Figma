@@ -83,7 +83,7 @@ export default function StepOrderSummary({ onBack, onOrderNow }) {
           className="w-1/2 bg-[#03081F] text-white py-3 rounded-full! font-semibold flex items-center gap-4 px-4"
         >
           <img src={deliveryorder} alt="deliveryonline" className="w-7 h-7" />
-          <span className="font-extrabold text-[16px]">Deliver my order</span>
+          <span className="font-extrabold text-[16px] text-sm">Deliver my order</span>
         </button>
         <button
           onClick={handleOrderNow}

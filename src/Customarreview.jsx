@@ -61,7 +61,7 @@ export default function Customarreviews() {
 
   return (
     <div className="bg-gray-300">
-      <div className="max-w-7xl mx-auto px-4 py-25 ">
+      <div className="max-w-7xl mx-auto px-4 !py-20 ">
 
         {/* HEADER */}
         <div className="flex items-center justify-between mb-8">
@@ -93,7 +93,7 @@ export default function Customarreviews() {
         {/* CARDS */}
         <div
           ref={scrollRef}
-          className="flex gap-6 overflow-x-hidden max-w-[1300px]"
+          className="flex gap-6 overflow-x-hidden max-w-[1300px] mt-3"
         >
           {reviews.map((review) => (
             <div
@@ -135,7 +135,7 @@ export default function Customarreviews() {
         </div>
       <div className="mt-3 text-center absolute ml-135">
         
-      </div><div className="inline-block bg-white px-6 py-2 rounded-xl shadow absolute mt-4 ml-17 md:!ml-85 lg:!ml-135">
+      </div><div className="inline-block bg-white !px-4 !py-2 rounded-xl shadow absolute mt-4 ml-17 md:!ml-85 lg:!ml-135">
             <h1 className="!text-5xl font-bold">3.4</h1>
             <div className="flex justify-center text-orange-400 mt-1">
               <FaStar /><FaStar /><FaStar /><FaStar />

@@ -1,11 +1,11 @@
 export default function TotalItems(){
     return(
-        <div>
+        <div className="!px-0 md:!px-0 lg:!px-0 xl:!px-7 ">
 
-            <div className="!mx-9 !mt-8 bg-orange-400 rounded-xl  py-1 ">
+            <div className="!mx-9 !mt-8 bg-orange-400 rounded-xl !max-w-7xl py-1 ">
             <div className=" mx-15 mt-3 bg-orange-400 rounded-xl  py-4 ">
-                <div className="flex flex-col md:flex-row justify-around">
-                    <div className="flex flex-col text-white border-white">
+                <div className="flex flex-col md:flex-row justify-around gap-2 lg:!gap-0">
+                    <div className="flex flex-col text-white border-white mx-auto md:!mx-1">
                         <div className="text-4xl">
                             546 +
                         </div>
@@ -14,7 +14,7 @@ export default function TotalItems(){
                         </div>
                     </div>
                      <div className="border-r text-white "></div>
-                    <div className="flex flex-col text-white ">
+                    <div className="flex flex-col text-white  mx-auto md:!mx-1 ">
                         <div className="text-4xl">
                             789,900 +
                         </div>
@@ -23,7 +23,7 @@ export default function TotalItems(){
                         </div>
                     </div>
                     <div className="border-r text-white "></div>
-                    <div className="flex flex-col text-white">
+                    <div className="flex flex-col text-white mx-auto md:!mx-1">
                         <div className="text-4xl ">
                             690 +
                         </div>
@@ -32,7 +32,7 @@ export default function TotalItems(){
                         </div>
                     </div>
                      <div className="border-r text-white "></div>
-                    <div className="flex flex-col text-white">
+                    <div className="flex flex-col text-white mx-auto md:!mx-1">
                         <div className="text-4xl">
                             17,457 +
                         </div>

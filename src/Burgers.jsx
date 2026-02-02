@@ -15,7 +15,7 @@ export default function Burgers({ layout = "sm:grid-cols-2 lg:grid-cols-3" }) {
 
   return (
     <div className="max-w-7xl mx-auto px-4">
-      <div className="text-4xl font-bold mb-5 text-orange-400">Burgers</div>
+      <div className="text-4xl font-bold mb-5 text-black">Burgers</div>
       <div className={`grid ${layout} gap-4`}>
         {burgers.map((item) => (
           <div
@@ -38,7 +38,7 @@ export default function Burgers({ layout = "sm:grid-cols-2 lg:grid-cols-3" }) {
               className="w-32 h-32 object-cover rounded-lg"
             />
 
-            <div className="bg-gray-200 w-15 h-15 absolute right-4 top-21 rounded-tl-3xl">
+            <div className="bg-gray-200 w-15 h-15 absolute right-4 !top-21 rounded-tl-3xl">
             <button
               onClick={() => handleAdd(item)}
               className="absolute bottom-3 right-3 w-7 h-7 bg-black text-white rounded-full! flex items-center justify-center text-2xl!"

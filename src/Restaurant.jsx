@@ -9,7 +9,7 @@ export default function Restaurant(){
     <Navbar />
 
   {/* TEXT OVER IMAGE */}
-  <div className="mt-6 relative">
+  <div className="!mt-6 relative">
 
   {/* BACKGROUND IMAGE */}
   <img
@@ -22,7 +22,7 @@ export default function Restaurant(){
   <div className="absolute inset-0 flex flex-col lg:flex-row items-center justify-between px-6 lg:px-12">
 
     {/* LEFT CONTENT */}
-    <div className="lg:w-1/2 flex flex-col gap-4">
+    <div className="!lg:w-1/2 flex flex-col gap-4 !ml-0 md:!ml-5">
       <p className="text-sm text-black font-semibold">
         I'm lovin' it!
       </p>
@@ -47,15 +47,15 @@ export default function Restaurant(){
     </div>
 
     {/* RIGHT IMAGE + RATING */}
-    <div className="relative mt-6 lg:mt-0 group">
+    <div className="relative !mt-6 !lg:mt-0 group">
       <img
         src={Burger}
         alt="Burger"
-        className="w-64 md:w-120 rounded-xl hidden md:!hidden lg:!flex"
+        className="w-64 md:w-100 !mr-15 rounded-xl hidden md:!hidden lg:!flex"
       />
 
       {/* RATING CARD */}
-      <div className="absolute right-107 bottom-8 bg-white rounded-xl shadow-lg p-3 w-28">
+      <div className="absolute right-103 bottom-8 bg-white rounded-xl shadow-lg p-3 w-28">
         <h3 className="text-xl font-bold">3.4</h3>
         <div className="text-orange-400 text-sm">★★★★☆</div>
         <p className="text-xs text-gray-500">1,360 reviews</p>

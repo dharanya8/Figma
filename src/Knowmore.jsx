@@ -4,11 +4,11 @@ import food from "./assets/images/food.png";
 
 export default function Knowmore() {
   return (
-    <div className="!max-w-7xl !mx-auto bg-gray-100 !px-6 !sm:px-8 !md:px-20 !py-8 !md:py-14 rounded-2xl">
-      
+    <div className="!px-5 md:!px-8 lg:!px-8 xl:!px-16 ">
+    <div className="!max-w-7xl !mx-auto bg-gray-100 !px-3 md:!px-5 lg:!px-15 !py-8 !md:py-14 rounded-2xl">
       {/* Header */}
       <div className="flex flex-col md:flex-row items-center justify-between !mb-8 text-center md:text-left">
-        <h2 className="text-xl sm:text-2xl font-bold">
+        <h2 className="text-xl sm:!text-xl md:!text-2xl font-bold">
           Know more about us!
         </h2>
 
@@ -86,6 +86,7 @@ export default function Knowmore() {
           </p>
         </div>
       </div>
+    </div>
     </div>
   );
 }

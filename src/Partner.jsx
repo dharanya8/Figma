@@ -5,7 +5,7 @@ import scooty from "./assets/images/scooty.png";
 export default function Partner() {
   return (
     <>
-      <div className="max-w-7xl mx-auto my-2 px-2 md:!px-12">
+      <div className="max-w-7xl mx-auto my-2 !px-2 md:!px-14">
         <div className="flex flex-col sm:flex-row gap-5 py-5 items-center justify-center">
           
           <Image

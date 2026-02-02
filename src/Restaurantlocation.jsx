@@ -1,6 +1,6 @@
 export default function Restaurantlocation() {
   return (
-    <div className="max-w-7xl mx-auto px-4 py-10">
+    <div className="max-w-7xl mx-auto !px-4 !py-10">
       <div className="relative rounded-2xl overflow-hidden shadow-lg">
 
         {/* MAP */}
@@ -12,7 +12,7 @@ export default function Restaurantlocation() {
         ></iframe>
 
         {/* LEFT INFO CARD */}
-        <div className="absolute top-9 left-1 md:!left-20 bg-gradient-to-b from-[#0b1020] to-[#020617] text-white p-6 rounded-xl w-[200px] md:!w-[300px] shadow-xl">
+        <div className="absolute !top-9 left-1 md:!left-20 bg-gradient-to-b from-[#0b1020] to-[#020617] text-white !p-6 rounded-xl w-[200px] md:!w-[300px] shadow-xl">
           
           <h2 className="text-xl font-bold">McDonald's</h2>
           <p className="text-orange-400 font-semibold mt-1">

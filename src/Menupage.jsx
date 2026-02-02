@@ -53,7 +53,7 @@ export default function MenuPage() {
             Menu
           </div>
         </div>
-        <div className="flex sm:flex-row lg:flex-col gap-2 border-t">
+        <div className="flex sm:!flex-col lg:flex-col gap-2 border-t">
           {["Burgers", "Fries", "ColdDrinks", "Pizza"].map((c) => (
             <button
               key={c}

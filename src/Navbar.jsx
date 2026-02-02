@@ -42,7 +42,7 @@ export default function Navbar() {
     { name: "Browse Menu", path: "/menu" },
     { name: "Special Offers", path: "/offers" },
     { name: "Restaurants", path: "/restaurant" },
-    { name: "Track Order", path: "/track" },
+    { name: "Track Order", path: "/menu" },
   ];
 
   return (

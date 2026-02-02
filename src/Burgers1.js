@@ -4,7 +4,7 @@ export const burgers = [
   {
     id: "burger-1",
     image: Burger1,
-    title: "Royal Cheese Burger with extra Fries",
+    title: " Cheese Burger with extra Fries",
     desc: "1 McChicken™, 1 Big Mac™, 1 Royal Cheeseburger, 3 medium",
     price: 22.0,
   },

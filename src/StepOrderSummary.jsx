@@ -1,11 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import deliveryorder from "./assets/images/Deliveryscooter.png";
+import storeicon from "./assets/images/Newstore.png";
 
 export default function StepOrderSummary({ onBack, onOrderNow }) {
   const navigate = useNavigate();
   const isLoggedIn = localStorage.getItem("isLoggedIn") === "true";
-  
+
   const cart = useSelector((state) => state.cart.items);
 
   const deliveryFee = 4;
@@ -40,10 +41,8 @@ export default function StepOrderSummary({ onBack, onOrderNow }) {
         <div className="text-4xl text-[#03081F] font-extrabold text-center">
           Order Now
         </div>
-        <div className="text-sm">
-          Minimum Delivery is £10
-        </div>
-        </div>
+        <div className="text-sm">Minimum Delivery is £10</div>
+      </div>
 
       {/* <div className="space-y-3 max-h-[300px] overflow-y-auto">
         {cart.map((item) => (
@@ -83,33 +82,35 @@ export default function StepOrderSummary({ onBack, onOrderNow }) {
           onClick={handleOrderNow}
           className="w-1/2 bg-[#03081F] text-white py-3 rounded-full! font-semibold flex items-center gap-4 px-4"
         >
-          <img src={deliveryorder} alt="delivery" className="w-7 h-7" />
-          <span className="font-extrabold text-[16px]">
-          Deliver my order
-          </span>
+          <img src={deliveryorder} alt="deliveryonline" className="w-7 h-7" />
+          <span className="font-extrabold text-[16px]">Deliver my order</span>
         </button>
         <button
           onClick={handleOrderNow}
           className="w-1/2 bg-[#FC8A06] text-white py-3 rounded-full! font-semibold flex items-center gap-4 px-4"
         >
-          <img src={deliveryorder} alt="delivery" className="w-7 h-7" />
-          <span className="font-extrabold text-[16px]">
-          I will come & Collect
+          <img src={storeicon} alt="deliverystore" className="w-7 h-7" />
+          <span className="font-extrabold text-[16px] text-[#03081F]">
+            I will come & Collect
           </span>
         </button>
       </div>
-      <div>
-        <div className="">
-          <span className="border-b"></span>
-          <span>or</span>
-          <span className="border-b border-"></span>
+      <div className="flex flex-col gap-2">
+        <div className="flex justify-center">
+          <div className="flex flex-row items-center justify-center gap-4 w-[70%]">
+            <div className="border-b-2 border-orange-300 w-30"></div>
+            <div className="font-bold">or</div>
+            <div className="border-b-2 border-orange-300 w-30"></div>
+          </div>
         </div>
+        <div className="flex items-center justify-center">
         <button
           onClick={onBack}
-          className="underline text-[#03081F] text-md font-bold"
+          className="underline text-[#03081F] text-sm! font-bold"
         >
           Cancel & Go back
         </button>
+        </div>
       </div>
 
       {!isLoggedIn && (

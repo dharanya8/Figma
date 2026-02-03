@@ -38,7 +38,7 @@ export default function Burgers({ layout = "sm:grid-cols-2 lg:grid-cols-3" }) {
               className="w-32 h-32 object-cover rounded-lg"
             />
 
-            <div className="bg-gray-200 w-15 h-15 absolute right-4 !top-21 rounded-tl-3xl">
+            <div className="bg-gray-200 w-15 h-15 absolute right-4 !top-28 md:!top-21 rounded-tl-3xl">
             <button
               onClick={() => handleAdd(item)}
               className="absolute bottom-3 right-3 w-7 h-7 bg-black text-white rounded-full! flex items-center justify-center text-2xl!"

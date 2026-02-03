@@ -36,7 +36,7 @@ export default function StepOrderSummary({ onBack, onOrderNow }) {
   };
 
   return (
-    <div className="p-4 flex flex-col gap-4">
+    <div className="p-4 flex flex-col gap-4 ">
       <div className="flex flex-col items-center gap-2">
         <div className="text-4xl text-[#03081F] font-extrabold text-center">
           Order Now
@@ -77,20 +77,20 @@ export default function StepOrderSummary({ onBack, onOrderNow }) {
         </div>
       </div>
 
-      <div className="flex flex-col items-center gap-4 mt-2 px-2">
+      <div className="flex flex-col items-center !gap-4 mt-2 px-2">
         <button
           onClick={handleOrderNow}
-          className="w-1/2 bg-[#03081F] text-white py-3 rounded-full! font-semibold flex items-center gap-4 px-4"
+          className="w-3/3 md:!w-1/2 bg-[#03081F] text-white py-3 rounded-full! font-semibold flex items-center gap-4 px-4"
         >
           <img src={deliveryorder} alt="deliveryonline" className="w-7 h-7" />
-          <span className="font-extrabold text-[16px] text-sm">Deliver my order</span>
+          <span className="font-extrabold text-[14px] md:!text-[16] text-sm">Deliver my order</span>
         </button>
         <button
           onClick={handleOrderNow}
-          className="w-1/2 bg-[#FC8A06] text-white py-3 rounded-full! font-semibold flex items-center gap-4 px-4"
+          className="w-3/3 md:!w-1/2 bg-[#FC8A06] text-white py-3 rounded-full! font-semibold flex items-center gap-4 px-4"
         >
           <img src={storeicon} alt="deliverystore" className="w-7 h-7" />
-          <span className="font-extrabold text-[16px] text-[#03081F]">
+          <span className="font-extrabold !text-[14px] md:!text-[15px] text-[#03081F]">
             I will come & Collect
           </span>
         </button>

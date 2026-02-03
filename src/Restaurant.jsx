@@ -5,7 +5,7 @@ export default function Restaurant(){
   
     return(
         <>
-        <div className="!px-15 !lg:!px-15 font-sans">
+        <div className="!px-4 lg:!px-15 font-sans">
     <Navbar />
 
   {/* TEXT OVER IMAGE */}
@@ -22,7 +22,7 @@ export default function Restaurant(){
   <div className="absolute inset-0 flex flex-col lg:flex-row items-center justify-between px-6 lg:px-12">
 
     {/* LEFT CONTENT */}
-    <div className="!lg:w-1/2 flex flex-col gap-4 !ml-0 md:!ml-5">
+    <div className="!lg:w-1/2 flex flex-col gap-4 !ml-5 md:!ml-5">
       <p className="text-sm text-black font-semibold">
         I'm lovin' it!
       </p>

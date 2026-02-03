@@ -39,7 +39,7 @@ export default function London(){
           <button className="text-black font-bold">Sauces</button>
           <button className="text-black font-bold">Orbit</button>
             </div>
-            <div className="!px-10 !md:!px-15
+            <div className="!px-10 md:!px-15
   grid 
   grid-cols-1 
   md:grid-cols-2 

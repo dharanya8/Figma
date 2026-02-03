@@ -6,3 +6,4 @@ export const colddrinks = [
   { id: "cold-5", title: "Iced Tea", desc: "Freshly brewed lemon iced tea", price: 2.0 },
   { id: "cold-6", title: "Mineral Water", desc: "500ml bottled water", price: 1.0 },
 ];
+a
